@@ -1,0 +1,378 @@
+
+        body {
+background: #9CA55F;
+margin:0;
+text-align:center;
+padding-top: 10px;
+padding-bottom: 14px;
+}
+
+a {color: #576A3D;text-decoration:underline;}
+a:hover {color: #333;text-decoration:underline;}
+
+#wrapper {
+margin:0px auto;
+width: 800px;
+position:relative;
+padding: 0px;
+vertical-align: top;
+text-align: left;
+background-color: #576A3D;
+}
+
+#wrapper:after {
+content: "."; 
+display: block; 
+height: 0; 
+clear: both; 
+visibility: hidden;
+}
+
+p {
+padding: 0px 0px 0px 0px;
+margin: 0px 0px 0px 0px;
+}
+
+#header {
+background: #697D4C url(http://static.webblogg.se//shared/img/css/nature_bg.jpg) no-repeat left top;
+margin: 0px;
+padding: 15px 15px 0px 50px;
+height: 90px;
+border: 0px none;
+}	
+
+#side {
+margin-right:0px;
+background: #576A3D;
+width: 155px;
+float: right;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-right: 20px;
+padding-left: 20px;
+}
+
+#content {
+overflow: hidden;
+float: left;
+background: #E9E8D1;
+padding: 0px 0px 20px;
+voice-family:"\"}\"";
+voice-family:inherit;
+border: 0px none;
+text-align: left;
+vertical-align: top;
+width: 600px;
+margin: 0px;
+}
+
+#header a { color: #FFF; text-decoration: none; }
+
+h1 {
+font-family: arial, verdana, sans-serif;
+font-size: 2.2em;
+font-weight: bold;
+color: #FFF;
+margin-top:25px;
+margin-bottom:0px;
+padding:0px;
+}
+
+h2 {
+font-family: verdana, arial, sans-serif;
+font-size: 10px;
+font-weight: bold;
+text-transform: uppercase;
+color: #FFF;
+margin-top:4px;
+margin-bottom:10px;
+margin-left: 0px;
+padding:0px;
+text-transform:uppercase;
+}
+
+/** Entry headers **/
+h3 {
+font-family: arial, verdana, sans-serif;
+font-size: 14px;
+color: #222;
+background-color:#A4B77B;
+background-image: url(http://static.webblogg.se//shared/img/css/nature_bullet.jpg);
+background-repeat: 
+no-repeat;
+background-position: 
+left;
+padding:17px 0px 10px 75px;
+margin: 0px 0px 10px;
+height: 23px;
+vertical-align: top;
+}
+
+.navheader {
+font-family: arial, verdana, sans-serif;
+font-size: 15px;
+font-weight: bold;
+color: #A4B77B;
+margin-bottom: 3px;
+}
+
+.nav {
+font-family: verdana, arial, sans-serif;
+font-size: 11px;
+font-weight: bold;
+}
+
+.nav ul {
+padding: 0px;
+font-weight: normal;
+margin: 0px 0px 8px;
+}
+
+.nav li {
+list-style: none;
+padding: 0px 0px 4px 0px;
+font-weight: normal;
+margin: 0px;
+}
+
+.nav a {
+margin: 0;
+display: block;
+height: 100%;
+color:#000000;
+}
+
+.nav a:hover { color: #FFFFFF;text-decoration:underline;}
+
+/** Post's body text **/
+.entrybody {
+font-family: verdana, arial, sans-serif;
+font-size: 11px;
+font-weight: normal;
+color: #333;
+line-height: 140%;
+text-align:justify;
+padding:20px;
+margin: 10px 0px 0px 0px;
+}
+
+/** 'Posted by' txt **/
+.entrymeta {
+font-family: verdana, arial, sans-serif;
+font-size: 10px;
+font-weight: normal;
+color: #666;
+padding:20px;
+text-align:right;
+}
+
+.entrymeta a { color: #33885B; text-decoration:underline;}
+.entrymeta a:hover { color: #333;text-decoration:underline; }
+
+.commentheader {
+font-family: verdana, arial, sans-serif;
+font-size: 11px;
+font-weight: bold;
+color: #333;
+line-height: 140%;
+padding: 10px 3px 3px 18px;
+border-top: 1px solid #FFF;
+}
+
+.commenttext {
+font-family: verdana, arial, sans-serif;
+font-size: 11px;
+font-weight: normal;
+color: #333;
+line-height: 140%;
+margin-right:20px;
+margin-left:10px;
+padding-left:10px;
+}
+
+.commentmeta {
+font-family: verdana, arial, sans-serif;
+font-size: 11px;
+font-weight: normal;
+color: #333;
+text-align:left;
+padding: 10px 20px 20px;
+}
+
+.commentmeta a { color: #33885B; text-decoration:underline;}
+.commentmeta a:hover { color: #333;text-decoration:underline; }
+
+.commentform {
+font-family: verdana, arial, sans-serif;
+font-size: 11px;
+font-weight: normal;
+color: #333;
+margin: 0px 0px 20px 0px;
+padding:20px;
+
+}
+
+.separator {
+display: none;
+}
+
+.default {
+display:none;
+}
+
+.subside {
+font-family: "Trebuchet MS" Verdana, Arial, Helvetica, Sans-serif;
+font-size: .7em;
+font-weight: normal;
+padding: 0px;
+float: right;
+}
+
+
+.xmlButton {
+border:1px solid;
+border-color:#FC9 #630 #330 #F96;
+padding:0 3px;
+font:bold 10px Verdana, Arial, Helvetica, Sans-serif;
+color:#FFF;
+background:#F60;
+text-decoration:none;
+margin:0;
+}
+
+.image {
+border: 1px solid #5E6655;
+padding: 0px 0px 0px 0px;
+margin: 0px 6px 6px 0px;
+}
+
+.thumbnail {
+border: 2px solid #889977;
+margin: 0px 6px 6px 0px;
+}
+
+.video{
+padding: 0px 0px 30px 30px;
+}
+
+.fieldName{
+font-family: Verdana, Arial, Helvetica, Sans-serif;
+font-size: 11px;
+margin: 0px 0px 12px 0px
+}
+
+select{
+font-family: Verdana, Arial, Helvetica, Sans-serif;
+font-size: 11px;
+}
+
+/*****************************************************************************
+* Calendar					                                                 *
+*****************************************************************************/
+
+#calendar {
+color: #A4B77B;
+font-family: 'Trebuchet MS', Verdana, sans-serif;
+padding: 0px 0px 6px 0px;
+text-align: left;
+}
+
+#calendar table {
+padding: 1px;
+/*border-collapse: collapse;*/
+border: 0px;
+}
+
+#calendar table caption {
+color: #A4B77B;
+font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size : 0.7em;
+border-bottom: 1px solid #999999;
+text-align: left;
+font-weight: bold;
+text-transform: uppercase;
+padding: 3px;
+letter-spacing: .3em;
+}
+
+#calendar table th {
+text-align: center;
+font-weight: bold;
+font-size: xx-small;
+}
+
+#calendar table tr td {
+border: 1px solid #A4B77B;
+text-align: center;
+font-size: xx-small;
+}
+
+#calendar table tr ul  {
+color: #BBB;
+list-style: dot;
+margin: 0px 0px 0px 20px;
+padding: 4 0 5 0;
+font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size : 0.7em;	
+}
+
+#calendar table tr td.cssDayMouseOver {
+border: 1px dotted red;
+cursor: hand;
+}
+
+#calendar table tr td.cssDayMouseOut {
+border: 1px solid #F1F1F1;
+}
+
+#calendar table tr td.cssEntryBox {
+border: 1px solid gray;
+padding: 6px;
+text-align: left;
+background: #FFFFFF;
+font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size : 0.8em;
+}
+
+#calendar table tr td ul li {
+}
+
+#calendar table tr td div.cssDayEntryHeader {
+font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size : 0.8em;
+text-align: left;
+font-weight: bold;
+padding: 4;
+}
+
+#calendar table tr td div.cssDayAvailable {
+text-decoration: underline;
+text-weight: bold;
+}
+form {
+margin: 0px 0px 6px;
+padding-left: 10px;
+}
+
+#profile {
+font-family: verdana, arial, sans-serif;
+font-size: 11px;
+font-weight: normal;
+margin-bottom: 10px;
+}
+
+#profile h4{
+font-family: arial, verdana, sans-serif;
+font-size: 15px;
+font-weight: bold;
+color: #A4B77B;
+margin-bottom: 3px;
+}
+
+#profile p a{
+color: #000;
+}
+
+#profile p a:hover{
+color: #FFF;
+}
