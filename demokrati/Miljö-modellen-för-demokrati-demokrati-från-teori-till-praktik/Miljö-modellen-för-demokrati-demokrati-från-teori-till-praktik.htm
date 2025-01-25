@@ -1,0 +1,235 @@
+<!--
+  ## Introduction
+
+  With [`amp-video`](/content/amp-dev/documentation/components/reference/amp-video-v0.1.md) you can have rich user interface features, such as docking (minimize-to-corner).
+
+  You can simply enable this feature on your `<amp-video>` by using the `dock` attribute. This example goes further by specifying a "docking slot" (a DOM element that represents the area where the video should be minimized) and layout synchronization using [events and actions](/documentation/guides-and-tutorials/learn/amp-actions-and-events), and the `amp-animation` extension.
+-->
+<!-- -->
+<!DOCTYPE html>
+<html amp="" lang="en" amp-version="2410292120000" class="i-amphtml-singledoc i-amphtml-standalone i-amphtml-iframed">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style amp-runtime="">html{overflow-x:hidden!important}html.i-amphtml-fie{height:100%!important;width:100%!important}html:not([amp4ads]),html:not([amp4ads]) body{height:auto!important}html:not([amp4ads]) body{margin:0!important}body{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;-ms-text-size-adjust:100%;text-size-adjust:100%}html.i-amphtml-singledoc.i-amphtml-embedded{-ms-touch-action:pan-y pinch-zoom;touch-action:pan-y pinch-zoom}html.i-amphtml-fie>body,html.i-amphtml-singledoc>body{overflow:visible!important}html.i-amphtml-fie:not(.i-amphtml-inabox)>body,html.i-amphtml-singledoc:not(.i-amphtml-inabox)>body{position:relative!important}html.i-amphtml-ios-embed-legacy>body{overflow-x:hidden!important;overflow-y:auto!important;position:absolute!important}html.i-amphtml-ios-embed{overflow-y:auto!important;position:static}#i-amphtml-wrapper{overflow-x:hidden!important;overflow-y:auto!important;position:absolute!important;top:0!important;left:0!important;right:0!important;bottom:0!important;margin:0!important;display:block!important}html.i-amphtml-ios-embed.i-amphtml-ios-overscroll,html.i-amphtml-ios-embed.i-amphtml-ios-overscroll>#i-amphtml-wrapper{-webkit-overflow-scrolling:touch!important}#i-amphtml-wrapper>body{position:relative!important;border-top:1px solid transparent!important}#i-amphtml-wrapper+body{visibility:visible}#i-amphtml-wrapper+body .i-amphtml-lightbox-element,#i-amphtml-wrapper+body[i-amphtml-lightbox]{visibility:hidden}#i-amphtml-wrapper+body[i-amphtml-lightbox] .i-amphtml-lightbox-element{visibility:visible}#i-amphtml-wrapper.i-amphtml-scroll-disabled,.i-amphtml-scroll-disabled{overflow-x:hidden!important;overflow-y:hidden!important}amp-instagram{padding:54px 0px 0px!important;background-color:#fff}amp-iframe iframe{box-sizing:border-box!important}[amp-access][amp-access-hide]{display:none}[subscriptions-dialog],body:not(.i-amphtml-subs-ready) [subscriptions-action],body:not(.i-amphtml-subs-ready) [subscriptions-section]{display:none!important}amp-experiment,amp-live-list>[update]{display:none}amp-list[resizable-children]>.i-amphtml-loading-container.amp-hidden{display:none!important}amp-list [fetch-error],amp-list[load-more] [load-more-button],amp-list[load-more] [load-more-end],amp-list[load-more] [load-more-failed],amp-list[load-more] [load-more-loading]{display:none}amp-list[diffable] div[role=list]{display:block}amp-story-page,amp-story[standalone]{min-height:1px!important;display:block!important;height:100%!important;margin:0!important;padding:0!important;overflow:hidden!important;width:100%!important}amp-story[standalone]{background-color:#000!important;position:relative!important}amp-story-page{background-color:#757575}amp-story .amp-active>div,amp-story .i-amphtml-loader-background{display:none!important}amp-story-page:not(:first-of-type):not([distance]):not([active]){transform:translateY(1000vh)!important}amp-autocomplete{position:relative!important;display:inline-block!important}amp-autocomplete>input,amp-autocomplete>textarea{padding:0.5rem;border:1px solid rgba(0,0,0,.33)}.i-amphtml-autocomplete-results,amp-autocomplete>input,amp-autocomplete>textarea{font-size:1rem;line-height:1.5rem}[amp-fx^=fly-in]{visibility:hidden}amp-script[nodom],amp-script[sandboxed]{position:fixed!important;top:0!important;width:1px!important;height:1px!important;overflow:hidden!important;visibility:hidden}
+/*# sourceURL=/css/ampdoc.css*/[hidden]{display:none!important}.i-amphtml-element{display:inline-block}.i-amphtml-blurry-placeholder{transition:opacity 0.3s cubic-bezier(0.0,0.0,0.2,1)!important;pointer-events:none}[layout=nodisplay]:not(.i-amphtml-element){display:none!important}.i-amphtml-layout-fixed,[layout=fixed][width][height]:not(.i-amphtml-layout-fixed){display:inline-block;position:relative}.i-amphtml-layout-responsive,[layout=responsive][width][height]:not(.i-amphtml-layout-responsive),[width][height][heights]:not([layout]):not(.i-amphtml-layout-responsive),[width][height][sizes]:not(img):not([layout]):not(.i-amphtml-layout-responsive){display:block;position:relative}.i-amphtml-layout-intrinsic,[layout=intrinsic][width][height]:not(.i-amphtml-layout-intrinsic){display:inline-block;position:relative;max-width:100%}.i-amphtml-layout-intrinsic .i-amphtml-sizer{max-width:100%}.i-amphtml-intrinsic-sizer{max-width:100%;display:block!important}.i-amphtml-layout-container,.i-amphtml-layout-fixed-height,[layout=container],[layout=fixed-height][height]:not(.i-amphtml-layout-fixed-height){display:block;position:relative}.i-amphtml-layout-fill,.i-amphtml-layout-fill.i-amphtml-notbuilt,[layout=fill]:not(.i-amphtml-layout-fill),body noscript>*{display:block;overflow:hidden!important;position:absolute;top:0;left:0;bottom:0;right:0}body noscript>*{position:absolute!important;width:100%;height:100%;z-index:2}body noscript{display:inline!important}.i-amphtml-layout-flex-item,[layout=flex-item]:not(.i-amphtml-layout-flex-item){display:block;position:relative;-ms-flex:1 1 auto;flex:1 1 auto}.i-amphtml-layout-fluid{position:relative}.i-amphtml-layout-size-defined{overflow:hidden!important}.i-amphtml-layout-awaiting-size{position:absolute!important;top:auto!important;bottom:auto!important}i-amphtml-sizer{display:block!important}@supports (aspect-ratio:1/1){i-amphtml-sizer.i-amphtml-disable-ar{display:none!important}}.i-amphtml-blurry-placeholder,.i-amphtml-fill-content{display:block;height:0;max-height:100%;max-width:100%;min-height:100%;min-width:100%;width:0;margin:auto}.i-amphtml-layout-size-defined .i-amphtml-fill-content{position:absolute;top:0;left:0;bottom:0;right:0}.i-amphtml-replaced-content,.i-amphtml-screen-reader{padding:0!important;border:none!important}.i-amphtml-screen-reader{position:fixed!important;top:0px!important;left:0px!important;width:4px!important;height:4px!important;opacity:0!important;overflow:hidden!important;margin:0!important;display:block!important;visibility:visible!important}.i-amphtml-screen-reader~.i-amphtml-screen-reader{left:8px!important}.i-amphtml-screen-reader~.i-amphtml-screen-reader~.i-amphtml-screen-reader{left:12px!important}.i-amphtml-screen-reader~.i-amphtml-screen-reader~.i-amphtml-screen-reader~.i-amphtml-screen-reader{left:16px!important}.i-amphtml-unresolved{position:relative;overflow:hidden!important}.i-amphtml-select-disabled{-webkit-user-select:none!important;-ms-user-select:none!important;user-select:none!important}.i-amphtml-notbuilt,[layout]:not(.i-amphtml-element),[width][height][heights]:not([layout]):not(.i-amphtml-element),[width][height][sizes]:not(img):not([layout]):not(.i-amphtml-element){position:relative;overflow:hidden!important;color:transparent!important}.i-amphtml-notbuilt:not(.i-amphtml-layout-container)>*,[layout]:not([layout=container]):not(.i-amphtml-element)>*,[width][height][heights]:not([layout]):not(.i-amphtml-element)>*,[width][height][sizes]:not([layout]):not(.i-amphtml-element)>*{display:none}amp-img:not(.i-amphtml-element)[i-amphtml-ssr]>img.i-amphtml-fill-content{display:block}.i-amphtml-notbuilt:not(.i-amphtml-layout-container),[layout]:not([layout=container]):not(.i-amphtml-element),[width][height][heights]:not([layout]):not(.i-amphtml-element),[width][height][sizes]:not(img):not([layout]):not(.i-amphtml-element){color:transparent!important;line-height:0!important}.i-amphtml-ghost{visibility:hidden!important}.i-amphtml-element>[placeholder],[layout]:not(.i-amphtml-element)>[placeholder],[width][height][heights]:not([layout]):not(.i-amphtml-element)>[placeholder],[width][height][sizes]:not([layout]):not(.i-amphtml-element)>[placeholder]{display:block;line-height:normal}.i-amphtml-element>[placeholder].amp-hidden,.i-amphtml-element>[placeholder].hidden{visibility:hidden}.i-amphtml-element:not(.amp-notsupported)>[fallback],.i-amphtml-layout-container>[placeholder].amp-hidden,.i-amphtml-layout-container>[placeholder].hidden{display:none}.i-amphtml-layout-size-defined>[fallback],.i-amphtml-layout-size-defined>[placeholder]{position:absolute!important;top:0!important;left:0!important;right:0!important;bottom:0!important;z-index:1}amp-img[i-amphtml-ssr]:not(.i-amphtml-element)>[placeholder]{z-index:auto}.i-amphtml-notbuilt>[placeholder]{display:block!important}.i-amphtml-hidden-by-media-query{display:none!important}.i-amphtml-element-error{background:red!important;color:#fff!important;position:relative!important}.i-amphtml-element-error:before{content:attr(error-message)}i-amp-scroll-container,i-amphtml-scroll-container{position:absolute;top:0;left:0;right:0;bottom:0;display:block}i-amp-scroll-container.amp-active,i-amphtml-scroll-container.amp-active{overflow:auto;-webkit-overflow-scrolling:touch}.i-amphtml-loading-container{display:block!important;pointer-events:none;z-index:1}.i-amphtml-notbuilt>.i-amphtml-loading-container{display:block!important}.i-amphtml-loading-container.amp-hidden{visibility:hidden}.i-amphtml-element>[overflow]{cursor:pointer;position:relative;z-index:2;visibility:hidden;display:initial;line-height:normal}.i-amphtml-layout-size-defined>[overflow]{position:absolute}.i-amphtml-element>[overflow].amp-visible{visibility:visible}template{display:none!important}.amp-border-box,.amp-border-box *,.amp-border-box :after,.amp-border-box :before{box-sizing:border-box}amp-pixel{display:none!important}amp-analytics,amp-auto-ads,amp-story-auto-ads{position:fixed!important;top:0!important;width:1px!important;height:1px!important;overflow:hidden!important;visibility:hidden}amp-story{visibility:hidden!important}html.i-amphtml-fie>amp-analytics{position:initial!important}[visible-when-invalid]:not(.visible),form [submit-error],form [submit-success],form [submitting]{display:none}amp-accordion{display:block!important}@media (min-width:1px){:where(amp-accordion>section)>:first-child{margin:0;background-color:#efefef;padding-right:20px;border:1px solid #dfdfdf}:where(amp-accordion>section)>:last-child{margin:0}}amp-accordion>section{float:none!important}amp-accordion>section>*{float:none!important;display:block!important;overflow:hidden!important;position:relative!important}amp-accordion,amp-accordion>section{margin:0}amp-accordion:not(.i-amphtml-built)>section>:last-child{display:none!important}amp-accordion:not(.i-amphtml-built)>section[expanded]>:last-child{display:block!important}
+/*# sourceURL=/css/ampshared.css*/</style><style amp-extension="amp-video-docking">.amp-video-docked-controls{direction:ltr!important;opacity:0;pointer-events:none!important;transition:opacity 0.3s ease;height:120px}.amp-video-docked-main-button-group{height:40px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;margin:-20px 0 0 -60px}.amp-large>.amp-video-docked-main-button-group{margin-left:-70px}.amp-large>.amp-video-docked-main-button-group>.amp-video-docked-button-group{margin-right:10px}.amp-large>.amp-video-docked-control-set-scroll-back,.amp-small>.amp-video-docked-control-set-scroll-back{margin-left:-32px}.amp-large>.amp-video-docked-control-set-scroll-back>.amp-video-docked-button-group{margin-right:0}.amp-large>.amp-video-docked-button-dismiss-group{margin:6px 0 0 -6px}.amp-small>.amp-video-docked-button-dismiss-group,.amp-small>.amp-video-docked-button-dismiss-group>div[role=button]{min-width:32px;height:32px;border-radius:32px;background-size:20px 20px}.amp-small>.amp-video-docked-button-dismiss-group{margin-left:8px}.amp-video-docked-controls-shown{opacity:1;pointer-events:initial!important}.amp-video-docked-button-group{margin:0}.amp-video-docked-button-dismiss-group,.amp-video-docked-button-dismiss-group>div[role=button],.amp-video-docked-button-group,.amp-video-docked-button-group>div[role=button]{min-width:40px;height:40px;border-radius:40px}.amp-video-docked-button-dismiss-group:active,.amp-video-docked-button-group:active{background-color:hsla(0,0%,100%,.7)}.amp-video-docked-button-dismiss-group>div[role=button],.amp-video-docked-button-group,.amp-video-docked-button-group>div[role=button],.amp-video-docked-controls,.i-amphtml-video-docked-overlay{-webkit-tap-highlight-color:rgba(0,0,0,0)!important}.amp-video-docked-button-dismiss-group>div[role=button],.amp-video-docked-button-group>div[role=button]{background-repeat:no-repeat;background-position:50%}.amp-video-docked-shadow{box-shadow:0px 0 20px 6px rgba(0,0,0,.2);transition-property:transform,opacity!important}.amp-video-docked-controls-bg{background:hsla(0,0%,90%,.6)}.amp-video-docked-mute{background-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M3 9v6h4l5 5V4L7 9zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77"/><path fill="none" d="M0 0h24v24H0z"/></svg>')}.amp-video-docked-unmute{background-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M16.5 12A4.5 4.5 0 0 0 14 7.97v2.21l2.45 2.45c.03-.2.05-.41.05-.63m2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.8 8.8 0 0 0 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71M4.27 3 3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a9 9 0 0 0 3.69-1.81L19.73 21 21 19.73l-9-9zM12 4 9.91 6.09 12 8.18z"/><path fill="none" d="M0 0h24v24H0z"/></svg>')}.amp-video-docked-pause{background-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M6 19h4V5H6zm8-14v14h4V5z"/><path fill="none" d="M0 0h24v24H0z"/></svg>')}.amp-video-docked-play{background-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M8 5v14l11-7z"/><path fill="none" d="M0 0h24v24H0z"/></svg>')}.amp-video-docked-fullscreen{background-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M7 14H5v5h5v-2H7zm-2-4h2V7h3V5H5zm12 7h-3v2h5v-5h-2zM14 5v2h3v3h2V5z"/></svg>')}.amp-video-docked-dismiss{background-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/><path fill="none" d="M0 0h24v24H0z"/></svg>')}.amp-video-docked-scroll-back{background-size:50%}.amp-rtl .amp-video-docked-scroll-back,.amp-video-docked-scroll-back{background-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><g fill="none" fill-rule="evenodd"><path d="M-4-4h48v48H-4z"/><path fill="%23000" fill-rule="nonzero" d="M36 0c2.2 0 4 1.8 4 4v24c0 2.2-1.8 4-4 4H12c-2.2 0-4-1.8-4-4V4c0-2.2 1.8-4 4-4zM16 11.868l12.618 12.618 2.829-2.828L18.789 9H27V5H12v15h4zM4 8H0v28c0 2.2 1.8 4 4 4h28v-4H4z"/></g></svg>')}.amp-video-docked-control-set-scroll-back>.amp-video-docked-button-group,.amp-video-docked-control-set-scroll-back>.amp-video-docked-button-group>div[role=button]{min-width:64px;height:64px}.amp-video-docked-shadow,.i-amphtml-video-docked,.i-amphtml-video-docked-overlay{margin:0!important}.i-amphtml-video-docked{transition-property:transform!important}.amp-video-docked-controls,.amp-video-docked-shadow,.i-amphtml-video-docked,.i-amphtml-video-docked-overlay{position:fixed!important;top:0!important;left:0!important;right:auto!important;bottom:auto!important;padding:0!important;min-width:0!important;min-height:0!important;max-width:auto!important;max-height:auto!important;transform-origin:left top!important;will-change:width,height,transition,transform,opacity;transition:transform 0.05s}.i-amphtml-video-docked-overlay{opacity:0;transition:opacity 0.3s ease;contain:strict!important}.amp-video-docked-controls-bg{opacity:1}.i-amphtml-video-docked-overlay.amp-video-docked-almost-dismissed{opacity:1;background:hsla(0,0%,39%,.1)}.i-amphtml-video-docked-shadow.amp-video-docked-almost-dismissed,.i-amphtml-video-docked.amp-video-docked-almost-dismissed{opacity:0.3}.amp-video-docked-button-dismiss-group{position:absolute;top:-40px}.amp-video-docked-placeholder-background{background:hsla(0,0%,78%,.5);transition-property:opacity;overflow:hidden;pointer-events:none;z-index:0;opacity:0}.amp-video-docked-placeholder-icon{mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><g fill="none" fill-rule="evenodd"><path d="M0 0h48v48H0z"/><path fill="%23000" fill-rule="nonzero" d="M40 4H16c-2.2 0-4 1.8-4 4v24c0 2.2 1.8 4 4 4h24c2.2 0 4-1.8 4-4V8c0-2.2-1.8-4-4-4M8 12H4v28c0 2.2 1.8 4 4 4h28v-4H8zm28 3.868L23.382 28.486l-2.828-2.828L33.212 13H25V9h15v15h-4z"/></g></svg>');mask-size:48px 48px;height:48px;width:48px;mask-repeat:no-repeat;mask-position:bottom left;background:hsla(0,0%,39%,.8);transition-property:opacity,transform;will-change:opacity,transform;position:absolute;bottom:40px;left:40px}.amp-video-docked-placeholder-icon.amp-rtl{mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><g fill="none" fill-rule="evenodd"><path d="M-4-4h48v48H-4z"/><path fill="%23000" fill-rule="nonzero" d="M36 0c2.2 0 4 1.8 4 4v24c0 2.2-1.8 4-4 4H12c-2.2 0-4-1.8-4-4V4c0-2.2 1.8-4 4-4zM16 11.868l12.618 12.618 2.829-2.828L18.789 9H27V5H12v15h4zM4 8H0v28c0 2.2 1.8 4 4 4h28v-4H4z"/></g></svg>');left:auto;right:40px}.amp-video-docked-placeholder-icon.amp-small{mask-size:32px 32px;width:32px;height:32px;bottom:20px;left:20px}.amp-video-docked-placeholder-icon.amp-rtl.amp-small{left:auto;right:20px}.amp-video-docked-placeholder-background-poster{background-size:cover;background-repeat:no-repeat;filter:blur(20px);transform:scale(1.1);opacity:0.3}.amp-video-docked-controls{z-index:2147483646!important}.i-amphtml-video-docked-overlay{z-index:2147483645!important}.i-amphtml-video-docked{z-index:2147483644!important}.amp-video-docked-shadow{z-index:2147483643!important}
+/*# sourceURL=/extensions/amp-video-docking/0.1/amp-video-docking.css*/</style>
+  <meta charset="utf-8">
+  <script async="" src="v0.js"></script>
+  <!-- ## Setup -->
+  <!-- Include the [`amp-video`](/content/amp-dev/documentation/components/reference/amp-video-v0.1.md) extension. -->
+  <script async="" custom-element="amp-video" src="advanced_video_docking_data/amp-video-0.1.js"></script>
+  <!-- Include the [`amp-video-docking`](/content/amp-dev/documentation/components/reference/amp-video-docking-v0.1.md) extension. -->
+  <script async="" custom-element="amp-video-docking" src="advanced_video_docking_data/amp-video-docking-0.1.js"></script>
+  <!-- Include the [`amp-animation`](/content/amp-dev/documentation/components/reference/amp-animation-v0.1.md)
+  extension to animate the `<aside>` element on `dock` and `undock`.  -->
+  <script async="" custom-element="amp-animation" src="advanced_video_docking_data/amp-animation-0.1.js"></script>
+  <title>Advanced Video Docking</title>
+  <link rel="canonical" href="https://amp.dev/documentation/examples/multimedia-animations/advanced_video_docking/index.html">
+  <meta name="viewport" content="width=device-width">
+  <style amp-boilerplate="">body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <!-- ## Include styling -->
+  <style amp-custom="">
+    body {
+      margin: 0;
+      background: white;
+      font-family: sans-serif;
+    }
+
+    header {
+      background: white;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ddd;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 1;
+      line-height: 40px;
+      font-size: 18px;
+    }
+
+    main {
+      margin: 0 auto;
+      padding: 80px 0 0 0;
+      width: 100vw;
+    }
+
+    .content {
+      height: 200vh;
+      width: calc(70vw - 20px);
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    aside {
+      right: 20px;
+      margin-left: 70vw;
+      position: fixed;
+      top: 80px;
+
+      /*
+      Define a viewport-based width for the aside. The docking slot will expand
+      to fill its width.
+      */
+      width: 30vw;
+    }
+
+    .more-content {
+      padding: 20px 20px 0;
+      background: #eaeaea;
+
+      /*
+      Offset vertical axis by the negative height of the docking slot.
+      Since the docking slot is 30vw wide, its height is 16.85vw based on a 16:9
+      aspect ratio
+      */
+      transform: translateY(-16.85vw);
+    }
+
+    .more-content ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .more-content li {
+      display: block;
+      margin: 0 -20px;
+    }
+
+    .more-content li a {
+      display: block;
+      border-top: 1px solid #ddd;
+      text-decoration: none;
+      padding: 16px 20px;
+      color: #2ac;
+    }
+
+    h3 {
+      margin: 0;
+      padding-bottom: 20px;
+    }
+
+    /* This is only needed for the preview to work on AMP by Example. You don't
+    need to include these set of properties. */
+    #abe-preview > div {
+      width: 100vw;
+      max-width: 100vw;
+    }
+
+    /* Ditto. */
+    .abe-experiment-warning {
+      max-width: calc(70vw - 60px);
+    }
+
+    @media (max-width: 600px) {
+      /* Hide on smaller devices to fallback to standard docking. */
+      #dock-slot {
+        display: none;
+      }
+
+      /* Reset fixed items. */
+      aside,
+      header {
+        position: static;
+      }
+
+      aside {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .content {
+        width: 100vw;
+      }
+
+      main {
+        padding-top: 20px;
+      }
+    }
+  </style>
+<script async="" custom-element="amp-auto-lightbox" data-script="amp-auto-lightbox" i-amphtml-inserted="" crossorigin="anonymous" src="advanced_video_docking_data/amp-auto-lightbox-0.1.js"></script></head>
+
+<body style="opacity: 1; visibility: visible; animation: none;" class="amp-mode-mouse">
+  <!-- ## Define animations -->
+  <!-- To slide down the content below the docking slot, the vertical offset is changed into a `20px` positive offset to create padding below the slot. -->
+  <amp-animation layout="nodisplay" id="slideDown" class="i-amphtml-element i-amphtml-layout-nodisplay i-amphtml-built" hidden="" i-amphtml-layout="nodisplay">
+    <script type="application/json">
+      {
+        "selector": ".more-content",
+        "duration": "0.5s",
+        "fill": "both",
+        "easing": "ease-out",
+        "keyframes": [{
+            "offset": 0,
+            "transform": "translateY(-16.85vw)"
+          },
+          {
+            "offset": 1,
+            "transform": "translateY(20px)"
+          }
+        ]
+      }
+    </script>
+  </amp-animation>
+  <!-- To slide up the content once the video is no longer docked, the animation reverts the aside content's offset to `-16.85vw`. -->
+  <amp-animation layout="nodisplay" id="slideUp" class="i-amphtml-element i-amphtml-layout-nodisplay i-amphtml-built" hidden="" i-amphtml-layout="nodisplay">
+    <script type="application/json">
+      {
+        "selector": ".more-content",
+        "duration": "0.5s",
+        "fill": "both",
+        "easing": "ease-out",
+        "keyframes": [{
+            "offset": 0,
+            "transform": "translateY(20px)"
+          },
+          {
+            "offset": 1,
+            "transform": "translateY(-16.85vw)"
+          }
+        ]
+      }
+    </script>
+  </amp-animation>
+  <header>Miljö modellen för demokrati, demokrati från teori till praktik </header>
+  <main>
+    <div class="content">
+      <!-- ## Include your video -->
+      <!-- In your [`<amp-video>`](/content/amp-dev/documentation/components/reference/amp-video-v0.1.md) tag, you should include the `dock` attribute to specify that the video should be minimized to corner on scroll. By setting a value on the attribute, we're specifying which docking slot we're using via a CSS selector.-->
+      <amp-video src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" poster="https://peach.blender.org/wp-content/uploads/bbb-splash.png" artwork="img/bigbuckbunny.jpg" title="Religions for peace" album="Blender" artist="Religions for peace" width="720" height="405" layout="responsive" controls="" dock="#dock-slot" class="i-amphtml-element i-amphtml-layout-responsive i-amphtml-layout-size-defined i-amphtml-media-component i-amphtml-video-interface i-amphtml-built i-amphtml-layout" i-amphtml-layout="responsive"><i-amphtml-sizer slot="i-amphtml-svc" style="padding-top: 56.25%;"></i-amphtml-sizer>
+      <video playsinline="" webkit-playsinline="" controls="controls" title="Miljö modellen för demokrati demokrati från teori till praktik" class="i-amphtml-fill-content i-amphtml-replaced-content" poster="https://peach.blender.org/wp-content/uploads/bbb-splash.png" src="file:///C:/Users/reform/Music/Milj%C3%B6-modellen-f%C3%B6r-demokrati-demokrati-fr%C3%A5n-teori-till-praktik/Milj%C3%B6-modellen-f%C3%B6r-demokrati-demokrati-fr%C3%A5n-teori-till-praktik/BigBuckBunny.mp4"></video></amp-video>
+      <p>We start from the principle that it is democracy that has given all religious communities freedom of religion, and that democracy be introduced in all religions, without exception. 
+A transition from church elections to a multi-religion electoral system in those countries that already have church elections, In other countries (USA, UK, China, India, Iran, Israel.....) that do not have similar elections, a multi-religion electoral system is introduced. !</p>
+      <p>Why do the flags of nations wave with religious symbols over the EU, UN, and NATO? It's important to replace these symbols with the countries' own ccTLDs. This change would make the flags more meaningful and respectful. </p>
+      <p>Miljön
+Du utgår ifrån att krig utgör ett hot mot miljön och mänskligheten och därför tog du kontakt med den svenska miljöaktivisten Greta i syfte att förena kampen för miljön och klimatet med denna konfliktlösningsmodell. Du kontaktade Greta men väntar på svar. Nu utifrån problembeskrivningen ovan d v s identifiera själva problemet kommer du att presentera din lösning . Problembeskrivning och lösning skall du sedan presentera i klassrummet under religionsundervisningen och förhoppningsvis med hjälp av din lärare får du hjälp med att presentera detta för övriga klasser och så småningom i övriga skolor i hela Sverige. När du är klar med allt detta och tagit med dig kritik och synpunkter kommer du att presentera detta i form av FN:s rollspel för fred och EU-medborgarinitiativ. Lösningen skall inte enbart tillämpas i Sverige utan inom hela EU och övriga länder.(Alternative voting systems). </p>
+      <p>Det är därför Israel-Palestinakonflikten inte har kunnat utredas fullt ut ! 
+Svenska Journalister och programledare tillhörande ett annat trossamfund än ett protestantiskt vilka saknar rösträtt ? Politikbyrån och utrikesbyrån m fl. Du finner i din forskning att journalister både inom landet och utom landet tillhörande ett annat trossamfund än ett prosetstantiskt saknar valmöjligheter . De kan varken rösta i det valet som deras parti som de brukar rösta på deltar i , kyrkovalet, eller avstå från att rösta i motsats till andra tillhörande ett protesantistiskt trossamfund som har kyrkoval. Medan du väntar på svar från någon journalist , vänder du dig till programledaren tillhörande ett annat trossamfund än ett protestantiskt, och ställer frågan huruvida de har två valmöjligheter som infödda svenskar tillhörande ett protestantiskt trossamfund eller inte och i så fall varför . Medan du väntar på svar från någon programledare , vänder du dig till de katolska och ortodoxa prästerna och ställer samma fråga . Under tiden upptäcker du att riksdagens talman är inblandad i kyrkovalet och att det är han som inleder kyrkomötet på samma sätt som han inleder riksmötet, En talman med dubbla roller. Den bilden finns i alla de nordiska länder som har har kyrkoval , (Alternative voting systems). När länder som USA, Israel , Kina, Indien och Iran saknar motsvarande val som, kyrkovalet , gör att religionerna motverkar en stabill fred i Mellanöstern och övriga delar av världen. ..</p>
+      <p>Miljö modellen för demokrati, demokrati från teori till praktik .</p>
+    </div>
+    <aside>
+      <!-- ## Include the docking slot. -->
+      <!-- Set width and height to `16:9`. Since its layout is `responsive`, the slot will expand to fill the aside's width while preserving aspect ratio.
+
+      You should also set the `on` attribute to specify the actions that get executed on docking events. In this case, we'll start the `slideDown` animation on `dock` and the `slideUp` animation on `undock`.
+
+      Note that we're seeting the action on the slot element. If we were to set it in the video itself, it would be triggered for `minimize-to-corner` rather than `minimize-to-slot`. -->
+      <amp-layout layout="responsive" width="16" height="9" on="dock: slideDown.start; undock: slideUp.start" id="dock-slot" class="i-amphtml-element i-amphtml-layout-responsive i-amphtml-layout-size-defined i-amphtml-built" i-amphtml-layout="responsive"><i-amphtml-sizer slot="i-amphtml-svc" style="padding-top: 56.25%;"></i-amphtml-sizer><div class="i-amphtml-fill-content">
+      </div></amp-layout>
+      <!-- ## Define the content under the slot -->
+      <!-- This container is negatively offset on the vertical axis to cover the docking slot. Our `slideDown` animation will take care of translating this content to make room for the docking slot. -->
+      <div class="more-content">
+        <h3>Miljö modellen för demokrati, demokrati från teori till praktik </h3>
+        <ul>
+          <li><a href="https://music.amazon.com/es-co/podcasts/3cf387cb-2a53-4238-beb0-72b43cf908e3/fdu's-podcast">Tre reformer som förändrar världen!</a></li>
+          <li><a href="https://multireligionvalsystem.eu.org/">I år är det ett politiskt-religiöst val i Sverige </a></li>
+          <li><a href="https://fdu.multireligionvalsystem.eu.org/">Kyrkovalsrefomen är avgörande för att lösa många konflikter.</a></li>
+          <li><a href="https://ecommerce.multireligionvalsystem.eu.org/">How to solve a most complex and controversial issues in the world.</a></li>
+          <li><a href="https://blog.multireligionvalsystem.eu.org/">The Israel-Palestine conflict </a></li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+</body></html>
