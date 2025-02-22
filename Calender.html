@@ -17,7 +17,7 @@
         </script>
     
     <link rel="icon" href="https://rfp.multireligionvalsystem.eu.org/apiv3/photo/favicon.ico?v=1737075957" type="image/x-icon">
-    <link href="Calender_files/font-awesome.min.css" rel="stylesheet" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <link href="https://rfp.multireligionvalsystem.eu.org/font-awesome.min.css" rel="stylesheet" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
 </head>
 <body>
 <div id="topbar">
@@ -378,7 +378,7 @@
         }
 
         if (e.data.previewUrl) {
-            var urlPath = '/manage/preview' + e.data.previewUrl;
+            var urlPath = 'https://rfp.multireligionvalsystem.eu.org/manage/preview' + e.data.previewUrl;
             urlPath = urlPath.replace(/[&?](static|latitude|longitude)=([\-0-9\.]*)/g, '');
             if (document.location.search) {
                 var tmp = document.location.search.replace(/^[&\?]/, '').split('&');
