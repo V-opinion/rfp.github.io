@@ -378,7 +378,7 @@
         }
 
         if (e.data.previewUrl) {
-            var urlPath = '/manage/preview' + e.data.previewUrl;
+            var urlPath = 'https://rfp.multireligionvalsystem.eu.org/manage/preview' + e.data.previewUrl;
             urlPath = urlPath.replace(/[&?](static|latitude|longitude)=([\-0-9\.]*)/g, '');
             if (document.location.search) {
                 var tmp = document.location.search.replace(/^[&\?]/, '').split('&');
